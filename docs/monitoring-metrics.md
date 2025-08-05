@@ -38,7 +38,7 @@ To enable per job/pipeline metrics, use the allow and deny list setting the conf
   * `ci.pipeline.id`: The full name of the Jenkins job if complying with the allow and deny lists specified through 
     configuration parameters documented below, otherwise `#other#` to limit the cardinality of the metric. 
   Example: `my-team/my-app/main`. See `hudson.model.AbstractItem#getFullName()`.
-  * `ci.pipeline.result`: `SUCCESS`, `UNSTABLE`, `FAILUIRE`, `NOT_BUILT`, `ABORTED`. See `hudson.model.Run#getResult()`.
+  * `ci.pipeline.result`: `SUCCESS`, `UNSTABLE`, `FAILURE`, `NOT_BUILT`, `ABORTED`. See `hudson.model.Run#getResult()`.
 * Configuration parameters to control the cardinality of the `ci.pipeline.id` attribute:
   * `otel.instrumentation.jenkins.run.metric.duration.allow_list`: Java regex, default value: `$^` (ie impossible regex matching nothing). Example `jenkins_folder_a/.*|jenkins_folder_b/.*`
   * `otel.instrumentation.jenkins.run.metric.duration.deny_list`: Java regex, default value: `$^` (ie impossible regex matching nothing). Example `.*test.*`
